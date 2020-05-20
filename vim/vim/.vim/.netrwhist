@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/'
+let g:netrw_dirhist_6='/Users'
+let g:netrw_dirhist_5='/Users/manu_hem'
+let g:netrw_dirhist_4='/Users/manu_hem/Desktop/PERSONAL/PROG/SQL/Assignment.sql'
+let g:netrw_dirhist_3='/Users/manu_hem/.hammerspoon'
+let g:netrw_dirhist_2='/Users/manu_hem/Downloads'
+let g:netrw_dirhist_1='/Users/manu_hem/.hammerspoon'
