@@ -3,7 +3,6 @@
 path=$(pwd)
 #copy vim config file
 cp -rf $path/vim/vim ~/.vim
-cp -rf $path/vim/viminfo ~/.viminfo
 cp -rf $path/vim/vimrc ~/.vimrc
 
 #copy tmux config file
