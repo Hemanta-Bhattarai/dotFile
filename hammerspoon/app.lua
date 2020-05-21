@@ -10,5 +10,6 @@ end
 
 --- quick open applications
 hs.hotkey.bind({"alt"}, "E", open("Finder"))
-hs.hotkey.bind({"alt"}, "C", open("Google Chrome"))
 hs.hotkey.bind({"alt"}, "T", open("Terminal"))
+hs.hotkey.bind({"alt"}, "S", open("Safari"))
+hs.hotkey.bind({"alt"}, "C", open("Google Chrome"))
