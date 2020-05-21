@@ -89,7 +89,7 @@ inoremap " ""<Left>
 inoremap ' ''<Left>
 " For C & C-like languages
 inoremap { {}<Left>
-
+inoremap ``` ```<Cr>```<Up>
 " For Ruby
 
 inoremap <C-e>def def<Cr>end<Up>
@@ -128,3 +128,5 @@ if &t_Co > 2 || has("gui_running")
 endif
 
 " }}}
+"Spelling cheking on"
+set spell spelllang=en_us

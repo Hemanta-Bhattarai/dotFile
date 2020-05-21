@@ -11,6 +11,6 @@ cp -rf $path/tmux/tmux.conf ~/.tmux.conf
 cp -rf $path/tmux/tmux.reset.conf ~/.tmux.reset.conf
 
 
-#copy hammarspoon file
-
-cp -rf $path/hammarspoon/hammarspoon ~/.hammarspoon
+#copy hammerspoon file
+rm -rf ~/.hammerspoon 2>&1 
+cp -rf $path/hammerspoon ~/.hammerspoon
