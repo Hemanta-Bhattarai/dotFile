@@ -16,4 +16,4 @@ rm -rf ~/.hammerspoon 2>&1
 cp -rf $path/hammerspoon ~/.hammerspoon
 #copy bashconfig file
 #edit your .bashrc or .bash_profile to source /.bashConfig
-cp -rf $path/bashConfig /.bashConfig
+cp -rf $path/bash/bashConfig /.bashConfig
