@@ -11,6 +11,7 @@ alias c9="awk '{print \$9}'"
 
 
 #ps1 configuration
+#get more information from PROMPTING in man bash
 #Note:
 # \h : host up to the first dot
 # \t : current time in 24 hr format
@@ -72,7 +73,7 @@ alias c9="awk '{print \$9}'"
 #Syntax for color encoding: \e[${SGR-code}m ${data_holder}\e[m
 #Example if you want user name to be red then  PS1='\e[31m\u\e[m@\h\W$'
 TODAY_DATE_TIME=$(date +'%d %b %H:%M')
-TIME="[\e[38;5;33m${TODAY_DATE_TIME}\e[m]"
+TIME="[\e[38;5;33m\d \A\e[m]"
 USERNAME="\e[38;5;200m\u\e[m"
 WORKDIR="\e[1m \W\e[m"
 PROMPT="\e[38;5;41m $\e[m"
