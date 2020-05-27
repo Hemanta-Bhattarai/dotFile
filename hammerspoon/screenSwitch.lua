@@ -6,15 +6,15 @@ function moveWindowToDisplay(d)
   end
 end
 
-hs.hotkey.bind({"alt", "cmd"}, "1", moveWindowToDisplay(1))
-hs.hotkey.bind({ "alt", "cmd"}, "2", moveWindowToDisplay(2))
-hs.hotkey.bind({"alt", "cmd"}, "3", moveWindowToDisplay(3))
+hs.hotkey.bind(push, "1", moveWindowToDisplay(1))
+hs.hotkey.bind(push, "2", moveWindowToDisplay(2))
+hs.hotkey.bind(push, "3", moveWindowToDisplay(3))
 
 
 
 
 -- bind hotkey
-hs.hotkey.bind({'alt', 'cmd'}, 'n', function()
+hs.hotkey.bind(push, 'n', function()
   -- get the focused window
   local win = hs.window.focusedWindow()
   -- get the screen where the focused window is displayed, a.k.a. current screen
@@ -27,7 +27,7 @@ end)
 
 
 -- bind hotkey
-hs.hotkey.bind({'alt', 'cmd'}, 'p', function()
+hs.hotkey.bind(push, 'p', function()
   -- get the focused window
   local win = hs.window.focusedWindow()
   -- get the screen where the focused window is displayed, a.k.a. current screen

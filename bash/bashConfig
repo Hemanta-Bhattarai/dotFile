@@ -7,3 +7,73 @@ alias c6="awk '{print \$6}'"
 alias c7="awk '{print \$7}'"
 alias c8="awk '{print \$8}'"
 alias c9="awk '{print \$9}'"
+
+
+
+#ps1 configuration
+#Note:
+# \h : host up to the first dot
+# \t : current time in 24 hr format
+# \u : current user name
+# \w : full current working dir
+# \W : basename of the current working dir
+# \n : new line
+
+## to add color to bash
+#Effect          ANSI CODE
+#Normal  0
+#Bold    1
+#faint   2
+#italic  3
+#underline   4
+#strike_through 9
+#
+#Background  ANSI_CODE
+#Red	41
+#Green	42
+#Brown	43
+#Blue	44
+#Purple	45
+#Cyan	46
+#White	47
+#Bright black	100
+#Bright red	101
+#Bright green	102
+#Bright brown	103
+#Bright blue	104
+#Bright purple	105
+#Bright cyan	106
+#Bright white	107
+#
+##fore ground  ANSI_CODE (text color')
+#Black	30
+#Red	31
+#Green	32
+#Brown	33
+#Blue	34
+#Purple	35
+#Cyan	36
+#White	37
+#Bright black	90
+#Bright red	91
+#Bright green	92
+#Bright brown	93
+#Bright blue	94
+#Bright purple	95
+#Bright cyan	96
+#Bright white	97
+#
+##Examples
+#blue text: 34
+#bold Green text ; 1;32
+#purple text on white background: 35;47
+#bold red text on bright cyan background: 1;31;106
+#
+#Syntax for color encoding: \e[${SGR-code}m ${data_holder}\e[m
+#Example if you want user name to be red then  PS1='\e[31m\u\e[m@\h\W$'
+TODAY_DATE_TIME=$(date +'%d %b %H:%M')
+TIME="[\e[38;5;33m${TODAY_DATE_TIME}\e[m]"
+USERNAME="\e[38;5;200m\u\e[m"
+WORKDIR="\e[1m \W\e[m"
+PROMPT="\e[38;5;41m $\e[m"
+export PS1="${TIME}${USERNAME}:${WORKDIR}${PROMPT}"

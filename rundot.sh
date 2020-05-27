@@ -11,9 +11,23 @@ cp -rf $path/tmux/tmux.conf ~/.tmux.conf
 cp -rf $path/tmux/tmux.reset.conf ~/.tmux.reset.conf
 
 
-#copy hammerspoon file
-rm -rf ~/.hammerspoon 2>&1 
-cp -rf $path/hammerspoon ~/.hammerspoon
-#copy bashconfig file
-#edit your .bashrc or .bash_profile to source /.bashConfig
-cp -rf $path/bash/bashConfig /.bashConfig
+#copy hammerspoon file and source bashConfig
+
+pathConfig="source $path/bash/bashConfig" 
+if [[ $OSTYPE == darwin* ]];then
+    rm -rf ~/.hammerspoon 2>&1 
+    cp -rf $path/hammerspoon ~/.hammerspoon
+    
+
+   string=$(grep "$pathConfig" ~/.bash_profile)
+    if [[ -z $string ]]; then
+        echo "$pathConfig" >> ~/.bash_profile
+    fi
+else
+
+   string=$(grep "$pathConfig" ~/.bashrc)
+    if [[ -z $string ]]; then
+        echo "$pathConfig" >> ~/.bashrc
+    fi
+
+fi
