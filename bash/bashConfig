@@ -72,10 +72,15 @@ alias c9="awk '{print \$9}'"
 #
 #Syntax for color encoding: \e[${SGR-code}m ${data_holder}\e[m
 #Example if you want user name to be red then  PS1='\e[31m\u\e[m@\h\W$'
+#more on srg code is found in https://en.wikipedia.org/wiki/ANSI_escape_code
+
+
+
+
 TODAY_DATE_TIME="\D{%d %b %H:%M}"
-#TIME="[\e[38;5;33m\d \A\e[m]"
-TIME="[\e[38;5;33m${TODAY_DATE_TIME} \e[m]"
-USERNAME="\e[38;5;200m\u\e[m"
-WORKDIR="\e[1m \W\e[m"
-PROMPT="\e[38;5;41m $\e[m"
-export PS1="${TIME}${USERNAME}:${WORKDIR}${PROMPT}"
+TIME="\e[1;31m[${TODAY_DATE_TIME}]\e[m"
+USERNAME="\e[38;200m\u\e[m"
+WORKDIR="\e[1;34m\W\e[m"
+PROMPT="\e[1m$\e[m"
+CURSOR="\e[2;30;16\e[m"
+PS1="\n${TIME} ${WORKDIR}${PROMPT}"
