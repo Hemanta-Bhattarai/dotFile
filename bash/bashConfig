@@ -84,3 +84,7 @@ WORKDIR="\e[1;34m\W\e[m"
 PROMPT="\e[1m$\e[m"
 CURSOR="\e[2;30;16\e[m"
 PS1="\n${TIME} ${WORKDIR}${PROMPT}"
+
+# set vi color in tumx
+
+ alias tmux="TERM-screen-256color-bce tmux"
