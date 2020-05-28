@@ -79,3 +79,9 @@ USERNAME="\e[38;5;200m\u\e[m"
 WORKDIR="\e[1m \W\e[m"
 PROMPT="\e[38;5;41m $\e[m"
 export PS1="${TIME}${USERNAME}:${WORKDIR}${PROMPT}"
+
+
+
+# set vi color in tumx
+
+ alias tmux="TERM-screen-256color-bce tmux"
