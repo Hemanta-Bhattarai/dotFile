@@ -74,8 +74,10 @@ alias c9="awk '{print \$9}'"
 #Example if you want user name to be red then  PS1='\e[31m\u\e[m@\h\W$'
 #more on srg code is found in https://en.wikipedia.org/wiki/ANSI_escape_code
 
-
-
+function mkcd()
+{
+    mkdir -p "$@" && cd "$@";
+}
 
 TODAY_DATE_TIME="\D{%d %b %H:%M}"
 TIME="\e[1;31m[${TODAY_DATE_TIME}]\e[m"
