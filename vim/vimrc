@@ -98,11 +98,29 @@ inoremap <C-e>def def<Cr>end<Up>
 "Cursor setting for different mode
 "Mode Settings
 
+""set cursorline
+""highlight CursorLine ctermbg=255
+" Enable CursorLine
+set cursorline
+
+" Default Colors for CursorLine
+highlight  CursorLine ctermbg=LightGreen ctermfg=None
+
+" Change Color when entering Insert Mode
+autocmd InsertEnter * highlight  CursorLine ctermbg=LightBlue ctermfg=Red
+
+" Revert Color to default when leaving Insert Mode
+autocmd InsertLeave * highlight  CursorLine ctermbg=LightGreen ctermfg=None
 
 
-let &t_SI.="\e[6 q" "SI = INSERT mode
+
+let &t_SI.="\e[4 q" "SI = INSERT mode
 let &t_SR.="\e[3 q" "SR = REPLACE mode
-let &t_EI.="\e[4 q" "EI = NORMAL mode (ELSE)
+let &t_EI.="\e[3 q" "EI = NORMAL mode (ELSE)
+
+
+
+
 
 "Cursor settings:
 
@@ -137,3 +155,5 @@ endif
 ":setlocal spell
 "unset spellcheck
 ":set nospell
+
+
