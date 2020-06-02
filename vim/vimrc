@@ -102,21 +102,22 @@ inoremap <C-e>def def<Cr>end<Up>
 ""highlight CursorLine ctermbg=255
 " Enable CursorLine
 set cursorline
-
+""set cursorcolumn
 " Default Colors for CursorLine
-highlight  CursorLine ctermbg=LightGreen ctermfg=None
+highlight  CursorLine ctermbg=White ctermfg=Green
 
 " Change Color when entering Insert Mode
-autocmd InsertEnter * highlight  CursorLine ctermbg=LightBlue ctermfg=Red
+autocmd InsertEnter * highlight  CursorLine ctermbg=LightGreen ctermfg=Blue
 
 " Revert Color to default when leaving Insert Mode
-autocmd InsertLeave * highlight  CursorLine ctermbg=LightGreen ctermfg=None
+autocmd InsertLeave * highlight  CursorLine ctermbg=White ctermfg=Green
 
 
 
-let &t_SI.="\e[4 q" "SI = INSERT mode
-let &t_SR.="\e[3 q" "SR = REPLACE mode
-let &t_EI.="\e[3 q" "EI = NORMAL mode (ELSE)
+
+let &t_SI.="\e[5 q" "SI = INSERT mode
+let &t_SR.="\e[6 q" "SR = REPLACE mode
+let &t_EI.="\e[6 q" "EI = NORMAL mode (ELSE)
 
 
 

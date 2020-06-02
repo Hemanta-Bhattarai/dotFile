@@ -18,8 +18,7 @@ if [[ $OSTYPE == darwin* ]];then
     rm -rf ~/.hammerspoon 2>&1 
     cp -rf $path/hammerspoon ~/.hammerspoon
     
-
-   string=$(grep "$pathConfig" ~/.bash_profile)
+string=$(grep "$pathConfig" ~/.bash_profile)
     if [[ -z $string ]]; then
         echo "$pathConfig" >> ~/.bash_profile
     fi
