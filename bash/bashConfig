@@ -80,14 +80,13 @@ function mkcd()
 }
 
 TODAY_DATE_TIME="\D{%d %b %H:%M}"
-TIME="\[\e[1;31m\][${TODAY_DATE_TIME}]\[\e[0m\]"
-USERNAME="\[\e[38;200m\]\u\e[0m\]"
-WORKDIR="\[\e[1;34m\]\W\e[0m\]"
-PROMPT="\[\e[1m\]>>>\e[0m\]"
-CURSOR="\[\e[2;30;16\]\e[0m\]"
-PS1="\n${TIME} ${WORKDIR}\n${PROMPT}"
+TIME="\[\e[1;31m\][${TODAY_DATE_TIME}]\[\e[m\]"
+USERNAME="\[\e[38;20m\]\u\e[m\]"
+WORKDIR="\[\e[1;34m\]\W\e[m\]"
+PROMPT="\[\e[1m\]$ \e[m\]"
+CURSOR="\[\e[2;30;16\]\e[m\]"
+PS1="\n${TIME} ${WORKDIR}${PROMPT}"
 
 # set vi color in tumx
 # alias tmux="TERM-screen-256color-bce tmux"
 alias tmux="tmux -2"
-
