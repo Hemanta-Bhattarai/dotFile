@@ -66,7 +66,7 @@ alias c9="awk '{print \$9}'"
 #
 ##Examples
 #blue text: 34
-#bold Green text ; 1;32
+#bold Green text: 1;32
 #purple text on white background: 35;47
 #bold red text on bright cyan background: 1;31;106
 #
@@ -79,14 +79,21 @@ function mkcd()
     mkdir -p "$@" && cd "$@";
 }
 
-TODAY_DATE_TIME="\D{%H:%M}"
-TIME="\[\e[1;31m\]${TODAY_DATE_TIME}\[\e[m\]"
-USERNAME="\[\e[38;20m\]\u\e[m\]"
+TODAY_DATE_TIME="\D{%d %b %H:%M}"
+TIME_NOW="\D{%H:%M}"
+TIME="\[\e[1;31m\][${TODAY_DATE_TIME}]\[\e[m\]"
+USERNAME="\[\e[1;38;20m\]\u\e[m\]"
 WORKDIR="\[\e[1;34m\]\W\e[m\]"
 PROMPT="\[\e[1m\]$ \e[m\]"
-CURSOR="\[\e[2;30;16\]\e[m\]"
-PS1="\n${TIME} ${WORKDIR}${PROMPT}"
+SEPERATOR="\[\e[1m\]@ \e[m\]"
+CURSOR="\[\e[1;94;16m\] >>> \e[m\]"
+PS1="\n${TIME} ${USERNAME}${SEPERATOR}${WORKDIR}${PROMPT}\n${CURSOR}"
 
 # set vi color in tumx
 # alias tmux="TERM-screen-256color-bce tmux"
 alias tmux="tmux -2"
+
+
+
+set -o vi
+
