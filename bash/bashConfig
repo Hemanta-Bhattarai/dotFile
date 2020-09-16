@@ -87,13 +87,10 @@ WORKDIR="\[\e[1;34m\]\W\e[m\]"
 PROMPT="\[\e[1m\]$ \e[m\]"
 SEPERATOR="\[\e[1m\]@ \e[m\]"
 CURSOR="\[\e[1;94;16m\] >>> \e[m\]"
-#PS1="\n${TIME} ${USERNAME}${SEPERATOR}${WORKDIR}${PROMPT}\n${CURSOR}"
-PS1=‘\[\033[30m\]\h\[\033[30m\]:\[\033[34m\]\W \[\033[31m\]\u\[\033[30m\]$ ’
-# set vi color in tumx
-# alias tmux="TERM-screen-256color-bce tmux"
-alias tmux="tmux -2"
-
-
-
+CLEAR="\[e[K\]"
+PS1="\n${TIME} ${USERNAME}${SEPERATOR}${WORKDIR}${PROMPT}\n${CURSOR}"
+# set vi color in tumx 
+# alias tmux="TERM-screen-256color-bce tmux" 
+alias tmux="tmux -2" 
 set -o vi
 

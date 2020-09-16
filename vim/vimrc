@@ -158,3 +158,6 @@ endif
 ":set nospell
 
 
+"Tab completion in vim
+set wildmode=longest,list,full
+set wildmenu
