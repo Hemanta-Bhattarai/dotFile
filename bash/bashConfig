@@ -10,6 +10,10 @@ alias c9="awk '{print \$9}'"
 
 
 
+alias c="clear"
+
+
+
 #ps1 configuration
 #get more information from PROMPTING in man bash
 #Note:
@@ -73,6 +77,8 @@ alias c9="awk '{print \$9}'"
 #Syntax for color encoding: \e[${SGR-code}m ${data_holder}\e[m
 #Example if you want user name to be red then  PS1='\e[31m\u\e[m@\h\W$'
 #more on srg code is found in https://en.wikipedia.org/wiki/ANSI_escape_code
+#color starts with \e[x;ym and it ends whth \e[m
+#All non printable sequence should be enclosed within \[ \] 
 
 function mkcd()
 {
@@ -81,14 +87,14 @@ function mkcd()
 
 TODAY_DATE_TIME="\D{%d %b %H:%M}"
 TIME_NOW="\D{%H:%M}"
-TIME="\[\e[1;31m\][${TODAY_DATE_TIME}]\[\e[m\]"
-USERNAME="\[\e[1;38;20m\]\u\e[m\]"
-WORKDIR="\[\e[1;34m\]\W\e[m\]"
-PROMPT="\[\e[1m\]$ \e[m\]"
-SEPERATOR="\[\e[1m\]@ \e[m\]"
-CURSOR="\[\e[1;94;16m\] >>> \e[m\]"
-CLEAR="\[e[K\]"
-PS1="\n${TIME} ${USERNAME}${SEPERATOR}${WORKDIR}${PROMPT}\n${CURSOR}"
+TIME="\[\e[1;31m\]\n[${TODAY_DATE_TIME}]\[\[\e[m\]"
+USERNAME="\[\e[1;38;20m\]\u\[\e[m\]"
+WORKDIR="\[\e[1;34m\]\W\[\e[m\]"
+PROMPT="\[\e[1m\]$\n\[\e[m\]"
+SEPERATOR="\[\e[1m\]@ \[\e[m\]"
+CURSOR="\[\e[1;94;16m\]>>>\[\e[m\]"
+PS1="${TIME} ${USERNAME}${SEPERATOR}${WORKDIR}${PROMPT}${CURSOR}"
+
 # set vi color in tumx 
 # alias tmux="TERM-screen-256color-bce tmux" 
 alias tmux="tmux -2" 
