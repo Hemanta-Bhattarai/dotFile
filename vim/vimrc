@@ -47,6 +47,10 @@ set hidden
 set ignorecase
 set smartcase
 
+
+set showmatch
+set matchtime=3
+
 " Enable searching as you type, rather than waiting till you press enter.
 set incsearch
 
