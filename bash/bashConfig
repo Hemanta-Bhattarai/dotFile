@@ -87,7 +87,7 @@ function mkcd()
 
 TODAY_DATE_TIME="\D{%d %b %H:%M}"
 TIME_NOW="\D{%H:%M}"
-TIME="\[\e[1;31m\]\n[${TODAY_DATE_TIME}]\[\[\e[m\]"
+TIME="\[\e[1;31m\]\n[${TODAY_DATE_TIME}]\[\e[m\]"
 USERNAME="\[\e[1;38;20m\]\u\[\e[m\]"
 WORKDIR="\[\e[1;34m\]\W\[\e[m\]"
 PROMPT="\[\e[1m\]$\n\[\e[m\]"
