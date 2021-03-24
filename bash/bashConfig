@@ -105,7 +105,7 @@ USERNAME="\[\e[1;38;20m\]\u\[\e[m\]"
 WORKDIR="\[\e[1;34m\]\W\[\e[m\]"
 PROMPT="\[\e[1m\]$\n\[\e[m\]"
 SEPERATOR="\[\e[1m\]@ \[\e[m\]"
-CURSOR="\[\e[1;94;16m\]>>> \[\e[m\]"
+CURSOR="\[\e[1;94;16m\]⛄ >>> \[\e[m\]"
 PS1="${TIME} ${USERNAME}${SEPERATOR}${WORKDIR}${PROMPT}${CURSOR}"
 
 # set vi color in tumx 
@@ -113,3 +113,12 @@ PS1="${TIME} ${USERNAME}${SEPERATOR}${WORKDIR}${PROMPT}${CURSOR}"
 alias tmux="tmux -2" 
 set -o vi
 
+if [ ! -f ~/.vim/autoload/plug.vim ]; then
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
+
+
+if [ ! -d ~/.vim/plungged ];then
+    mkdir ~/.vim/plungged
+fi
