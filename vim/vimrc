@@ -1,5 +1,13 @@
 ""Plugins
-"call plug#begin('~/.vim/plugged')
+call plug#begin('~/.vim/plugged')
+
+
+"async linting
+Plug 'w0rp/ale'
+
+"plug in for linting in c++ and c
+Plug 'rhysd/vim-clang-format', {'for': ['c', 'cpp']}
+"
 "
 "" Atom One Dark / Light theme.
 "Plug 'rakr/vim-one'
@@ -110,10 +118,11 @@
 "Plug 'vim-ruby/vim-ruby'
 "Plug 'wgwoods/vim-systemd-syntax'
 "
-"call plug#end()
+call plug#end()
 "
 "
 
+"PlugInstall
 
 
 
@@ -285,3 +294,19 @@ endif
 "Tab completion in vim
 set wildmode=longest,list,full
 set wildmenu
+
+
+"Linter options from ale
+let g:ale_linters = {
+      \'*':[],
+      \'python':['flake8'],
+      \}
+let g:ale_fixers = {
+      \'*':['remove_trailing_lines', 'trim_whitespace'],
+      \'python':['black', 'isort']
+      \}
+let g:ale_fix_on_save = 1
+
+"Linter for c++
+"leg g:clang_format#auto_format=1 
+
