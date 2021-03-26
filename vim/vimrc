@@ -287,7 +287,9 @@ endif
 
 " }}}
 
-
+"display vertical line after 80 characters "
+set colorcolumn=80
+highlight ColorColumn ctermbg=lightblue guibg=lightblue
 
 "Spelling cheking on"
 "set spell spelllang=en_us
