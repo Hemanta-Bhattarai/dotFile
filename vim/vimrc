@@ -5,6 +5,10 @@ call plug#begin('~/.vim/plugged')
 "async linting
 Plug 'w0rp/ale'
 
+"Smart commenter
+"https://github.com/preservim/nerdcommenter
+Plug 'preservim/nerdcommenter'
+
 "plug in for linting in c++ and c
 Plug 'rhysd/vim-clang-format', {'for': ['c', 'cpp']}
 "
@@ -60,10 +64,10 @@ Plug 'rhysd/vim-clang-format', {'for': ['c', 'cpp']}
 "Plug 'mhinz/vim-grepper'
 "
 "" Better display unwanted whitespace.
-"Plug 'ntpeters/vim-better-whitespace'
+Plug 'ntpeters/vim-better-whitespace'
 "
 "" Toggle comments in various ways.
-"Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary'
 "
 "" Automatically set 'shiftwidth' + 'expandtab' (indention) based on file type.
 "Plug 'tpope/vim-sleuth'
@@ -75,13 +79,13 @@ Plug 'rhysd/vim-clang-format', {'for': ['c', 'cpp']}
 "Plug 'Konfekt/FastFold'
 "
 "" Show git file changes in the gutter.
-"Plug 'mhinz/vim-signify'
+Plug 'mhinz/vim-signify'
 "
 "" A git wrapper.
-"Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 "
 "" Dim paragraphs above and below the active paragraph.
-"Plug 'junegunn/limelight.vim'
+Plug 'junegunn/limelight.vim'
 "
 "" Distraction free writing by removing UI elements and centering everything.
 "Plug 'junegunn/goyo.vim'
@@ -90,10 +94,10 @@ Plug 'rhysd/vim-clang-format', {'for': ['c', 'cpp']}
 "Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 "
 "" Automatically show Vim's complete menu while typing.
-"Plug 'vim-scripts/AutoComplPop'
+Plug 'vim-scripts/AutoComplPop'
 "
 "" Run test suites for various languages.
-"Plug 'janko/vim-test'
+Plug 'janko/vim-test'
 "
 "" Languages and file types.
 "Plug 'cakebaker/scss-syntax.vim'
@@ -110,7 +114,7 @@ Plug 'rhysd/vim-clang-format', {'for': ['c', 'cpp']}
 "Plug 'pangloss/vim-javascript'
 "Plug 'PotatoesMaster/i3-vim-syntax'
 "Plug 'stephpy/vim-yaml'
-"Plug 'tmux-plugins/vim-tmux'
+Plug 'tmux-plugins/vim-tmux'
 "Plug 'tpope/vim-git'
 "Plug 'tpope/vim-liquid'
 "Plug 'tpope/vim-rails'
@@ -208,8 +212,10 @@ inoremap <Up>    <ESC>:echoe "Use k"<CR>
 inoremap <Down>  <ESC>:echoe "Use j"<CR>
 ".. bind cltr space to i"
 imap jj    <ESC>
+".. bind <leader> to alt
+map <Space> <Leader>
 "..set to take curser after last character use $+l"
-set ve+=onemore 
+set ve+=onemore
 set tabstop=2
 set shiftwidth=2
 set expandtab
@@ -259,7 +265,7 @@ let &t_EI.="\e[6 q" "EI = NORMAL mode (ELSE)
 "Cursor settings:
 
 "  1 -> blinking block
-"  2 -> solid block 
+"  2 -> solid block
 "  3 -> blinking underscore
 "  4 -> solid underscore
 "  5 -> blinking vertical bar
@@ -285,7 +291,7 @@ endif
 
 "Spelling cheking on"
 "set spell spelllang=en_us
-"to set spelling check locally 
+"to set spelling check locally
 ":setlocal spell
 "unset spellcheck
 ":set nospell
@@ -308,5 +314,51 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 
 "Linter for c++
-"leg g:clang_format#auto_format=1 
 
+let g:clang_format#auto_format=1
+"https://releases.llvm.org/10.0.0/tools/clang/docs/ClangFormatStyleOptions.html
+let g:clang_format#style_options = {
+            \"BasedOnStyle" : "Google",
+            \ "AccessModifierOffset" : -4,
+            \"AlignAfterOpenBracket" : "BAS_Align",
+            \"AlignConsecutiveMacros" : "true",
+            \"AlignOperands" : "true",
+            \"AlignTrailingCommets" : "true",
+            \"AllowShortBlocksOnSingleLine" : "SBS_Always",
+            \"AllowShortCaseLabelOnASingleLine" : "true",
+            \ "AllowShortIfStatementsOnASingleLine" : "true",
+            \ "AlwaysBreakTemplateDeclarations" : "true",
+            \ "Standard" : "C++11"}
+
+
+
+
+"Setting for nerdcommenter
+"Note: To comment the line use [count] <Space> cc
+"Note: To toogle the comment use [count] <Space> ci
+" Create default mappings
+"let g:NERDCreateDefaultMappings = 1
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+"let g:NERDDefaultAlign = 'left'
+
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" Enable NERDCommenterToggle to check all selected lines is commented or not
+let g:NERDToggleCheckAllLines = 1
