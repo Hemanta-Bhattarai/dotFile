@@ -82,7 +82,7 @@ Plug 'tpope/vim-commentary'
 Plug 'mhinz/vim-signify'
 "
 "" A git wrapper.
-"Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 "
 "" Dim paragraphs above and below the active paragraph.
 Plug 'junegunn/limelight.vim'
@@ -319,7 +319,7 @@ let g:clang_format#auto_format=1
 "https://releases.llvm.org/10.0.0/tools/clang/docs/ClangFormatStyleOptions.html
 let g:clang_format#style_options = {
             \"BasedOnStyle" : "Google",
-            \ "AccessModifierOffset" : -4,
+            \ "AccessModifierOffset" : 2,
             \"AlignAfterOpenBracket" : "BAS_Align",
             \"AlignConsecutiveMacros" : "true",
             \"AlignOperands" : "true",
