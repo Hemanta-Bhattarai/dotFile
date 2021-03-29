@@ -1,6 +1,9 @@
 ""Plugins
 call plug#begin('~/.vim/plugged')
 
+"Install telescope
+Plug 'nvim-telescope/telescope.nvim'
+
 
 "async linting
 Plug 'w0rp/ale'
@@ -14,14 +17,28 @@ Plug 'rhysd/vim-clang-format', {'for': ['c', 'cpp']}
 "
 "
 "" Atom One Dark / Light theme.
-"Plug 'rakr/vim-one'
+Plug 'rakr/vim-one'
 "
 "" Gruvbox Community theme.
-"Plug 'gruvbox-community/gruvbox'
+Plug 'gruvbox-community/gruvbox'
+
 "
 "" Integrate fzf with Vim.
 "Plug '~/.fzf'
-"Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim'
+
+"NerdTree Plugins 
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'scrooloose/nerdtree-project-plugin'
+Plug 'PhilRunninger/nerdtree-buffer-ops'
+Plug 'PhilRunninger/nerdtree-visual-selection'
+
+
+
+
 "
 "" Better manage Vim sessions.
 "Plug 'tpope/vim-obsession'
@@ -106,8 +123,8 @@ Plug 'janko/vim-test'
 "Plug 'ekalinin/dockerfile.vim'
 "Plug 'elixir-editors/vim-elixir'
 "Plug 'Glench/Vim-Jinja2-Syntax'
-"Plug 'godlygeek/tabular' | Plug 'tpope/vim-markdown'
-"Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
+Plug 'godlygeek/tabular' | Plug 'tpope/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 "Plug 'jvirtanen/vim-hcl'
 "Plug 'lifepillar/pgsql.vim'
 "Plug 'othree/html5.vim'
@@ -118,7 +135,7 @@ Plug 'tmux-plugins/vim-tmux'
 "Plug 'tpope/vim-git'
 "Plug 'tpope/vim-liquid'
 "Plug 'tpope/vim-rails'
-"Plug 'vim-python/python-syntax'
+Plug 'vim-python/python-syntax'
 "Plug 'vim-ruby/vim-ruby'
 "Plug 'wgwoods/vim-systemd-syntax'
 "
@@ -180,8 +197,25 @@ set ignorecase
 set smartcase
 
 
+
+set exrc
+set smartindent
+set scrolloff=8
+
+
+
+set noswapfile
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
+set incsearch
+
 set showmatch
 set matchtime=3
+set updatetime=50
+set cmdheight=2
+
+
 
 " Enable searching as you type, rather than waiting till you press enter.
 set incsearch
@@ -241,6 +275,7 @@ inoremap <C-e>def def<Cr>end<Up>
 ""highlight CursorLine ctermbg=255
 " Enable CursorLine
 set cursorline
+
 ""set cursorcolumn
 " Default Colors for CursorLine
 highlight  CursorLine ctermbg=White ctermfg=Green
@@ -270,22 +305,19 @@ let &t_EI.="\e[6 q" "EI = NORMAL mode (ELSE)
 "  4 -> solid underscore
 "  5 -> blinking vertical bar
 "  6 -> solid vertical bar
-colorscheme morning
 
-if exists('$TMUX')
-colorscheme morning
-endif
-" Highlighting {{{
 
-if (has("termguicolors"))
-   set termguicolors
-endif
+ if exists('$TMUX')
+ colorscheme morning
+ endif
 
-if &t_Co > 2 || has("gui_running")
-   syntax on                    " switch syntax highlighting on, when the terminal has colors
-endif
+ if (has("termguicolors"))
+   " set termguicolors
+ endif
 
-" }}}
+ " if &t_co > 2 || has("gui_running")
+    " syntax on                    " switch syntax highlighting on, when the terminal has colors
+ " endif
 
 "display vertical line after 80 characters "
 set colorcolumn=80
@@ -311,7 +343,19 @@ let g:ale_linters = {
       \}
 let g:ale_fixers = {
       \'*':['remove_trailing_lines', 'trim_whitespace'],
-      \'python':['black', 'isort']
+      \'python':['black', 'isort'],
+      \   'csh': ['shell'],
+      \   'elixir': ['credo', 'dialyxir', 'dogma', 'elixir-ls'],
+      \   'go': ['gofmt', 'golint', 'go vet'],
+      \   'hack': ['hack'],
+      \   'help': [],
+      \   'perl': ['perlcritic'],
+      \   'perl6': [],
+      \   'rust': ['cargo'],
+      \   'spec': [],
+      \   'text': [],
+      \   'vue': ['eslint', 'vls'],
+      \   'zsh': ['shell']
       \}
 let g:ale_fix_on_save = 1
 
@@ -351,3 +395,18 @@ let g:NERDTrimTrailingWhitespace = 1
 
 " Enable NERDCommenterToggle to check all selected lines is commented or not
 let g:NERDToggleCheckAllLines = 1
+
+"++++++++++++++++++++++++++++++++++++++++++"
+"NerdTree Plugins install and configuration
+nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>f :NERDTreeFind<CR>
+
+
+" Start NERDTree and put the cursor back in the other window.
+"autocmd VimEnter * NERDTree | wincmd p
+
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+
+"++++++++++++++++++++++++++++++++++++++++++++++++++"
+

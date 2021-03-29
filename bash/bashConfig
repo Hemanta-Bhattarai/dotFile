@@ -1,13 +1,13 @@
-#To enable the logo comment out the follwing lines 
+#To enable the logo comment out the follwing lines
 #cat<< "EOLogo"
-# _____ _           _     _   _                 _____           _        _ 
+# _____ _           _     _   _                 _____           _        _
 #/  ___| |         | |   | | | |               /  __ \         | |      | |
 #\ `--.| |__  _   _| |_  | | | |_ __    _ __   | /  \/ ___   __| | ___  | |
 # `--. | '_ \| | | | __| | | | | '_ \  | '_ \  | |    / _ \ / _` |/ _ \ | |
 #/\__/ | | | | |_| | |_  | |_| | |_) | | | | | | \__/| (_) | (_| |  __/ |_|
 #\____/|_| |_|\__,_|\__|  \___/| .__/  |_| |_|  \____/\___/ \__,_|\___| (_)
-#                              | |                                         
-#                              |_|   
+#                              | |
+#                              |_|
 #EOLogo
 # source for text: http://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20
 #
@@ -91,7 +91,7 @@ alias c="clear"
 #Example if you want user name to be red then  PS1='\e[31m\u\e[m@\h\W$'
 #more on srg code is found in https://en.wikipedia.org/wiki/ANSI_escape_code
 #color starts with \e[x;ym and it ends whth \e[m
-#All non printable sequence should be enclosed within \[ \] 
+#All non printable sequence should be enclosed within \[ \]
 
 function mkcd()
 {
@@ -105,12 +105,13 @@ USERNAME="\[\e[1;38;20m\]\u\[\e[m\]"
 WORKDIR="\[\e[1;34m\]\W\[\e[m\]"
 PROMPT="\[\e[1m\]$\n\[\e[m\]"
 SEPERATOR="\[\e[1m\]@ \[\e[m\]"
-CURSOR="\[\e[1;94;16m\]⛄ >>> \[\e[m\]"
+SYMBOL="🌷"
+CURSOR="\[\e[1;94;16m\]${SYMBOL} >>> \[\e[m\]"
 PS1="${TIME} ${USERNAME}${SEPERATOR}${WORKDIR}${PROMPT}${CURSOR}"
 
-# set vi color in tumx 
-# alias tmux="TERM-screen-256color-bce tmux" 
-alias tmux="tmux -2" 
+# set vi color in tumx
+# alias tmux="TERM-screen-256color-bce tmux"
+alias tmux="tmux -2"
 set -o vi
 
 if [ ! -d ~/.vim/plungged ];then
@@ -123,3 +124,6 @@ if [ ! -f ~/.vim/autoload/plug.vim ]; then
 fi
 
 
+
+#clang formating alias
+alias format='find . -name "*.cpp" -o -name "*.c" -o -name "*.h" -name "*.hpp" -o -name "*.cu"|xargs -I {} clang-format --style="{BasedOnStyle: Google, Standard: c++11, ColumnLimit: 80}" -i {}'
