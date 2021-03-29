@@ -354,7 +354,7 @@ set colorcolumn=80
 highlight ColorColumn ctermbg=lightblue guibg=lightblue
 
 "Spelling cheking on"
-set spell spelllang=en_us
+"set spell spelllang=en_us
 "to set spelling check locally
 ":setlocal spell
 "unset spellcheck
