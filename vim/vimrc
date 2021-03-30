@@ -144,7 +144,7 @@ Plug 'chrisbra/csv.vim'
 Plug 'elixir-editors/vim-elixir'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'godlygeek/tabular' | Plug 'tpope/vim-markdown'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
+"Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 "Plug 'jvirtanen/vim-hcl'
 "Plug 'lifepillar/pgsql.vim'
 "Plug 'othree/html5.vim'
@@ -337,13 +337,13 @@ let &t_EI.="\e[6 q" "EI = NORMAL mode (ELSE)
 "  6 -> solid vertical bar
 
 
- if exists('$TMUX')
-  colorscheme morning
- endif
+  if exists('$TMUX')
+   colorscheme morning
+  endif
 
- if (has("termguicolors"))
-  set termguicolors
- endif
+  if (has("termguicolors"))
+   set termguicolors
+  endif
 
  " if &t_co > 2 || has("gui_running")
     " syntax on                    " switch syntax highlighting on, when the terminal has colors
@@ -354,7 +354,7 @@ set colorcolumn=80
 highlight ColorColumn ctermbg=lightblue guibg=lightblue
 
 "Spelling cheking on"
-set spell spelllang=en_us
+"set spell spelllang=en_us
 "to set spelling check locally
 ":setlocal spell
 "unset spellcheck
