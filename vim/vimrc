@@ -1,5 +1,6 @@
 "https://danielmiessler.com/study/vim/
 "Very good tutorial for vim
+"
 ""Plugins
 call plug#begin('~/.vim/plugged')
 
@@ -202,6 +203,8 @@ set nocompatible
 
 " Turn on syntax highlighting.
 let python_highlight_all=1
+filetype off
+filetype plugin indent on
 syntax on
 
 " Disable the default Vim startup message.
@@ -250,6 +253,7 @@ set scrolloff=10
 
 
 set noswapfile
+set nowritebackup
 set nobackup
 set undodir=~/.vim/undodir
 set undofile
@@ -259,6 +263,10 @@ set showmatch
 set matchtime=3
 set updatetime=50
 set cmdheight=2
+
+" Useful settings
+set history=700
+set undolevels=700
 
 
 
@@ -293,10 +301,10 @@ inoremap <Down>  <ESC>:echoe "Use j"<CR>
 imap jj    <ESC>
 
 "Split of the vim pannel"
-nnoremap <C-J>  <C-W><C-J>
-nnoremap <C-K>  <C-W><C-K>
-nnoremap <C-L>  <C-W><C-L>
-nnoremap <C-H>  <C-W><C-H>
+nnoremap <C-J>  <C-W>J
+nnoremap <C-K>  <C-W>K
+nnoremap <C-L>  <C-W>L
+nnoremap <C-H>  <C-W>H
 
 
 
@@ -543,3 +551,51 @@ EOF
 
 " Switching between dark and light theme
 call togglebg#map("<F5>")
+
+
+
+" +++++++++++++++++
+" Quicksave commands
+noremap <Leader>s :update<CR> " Save file
+
+" Quick quit commands
+noremap <Leader>e :quit<CR>  " Quit current windows
+noremap<Leader>E :qal<CR>    " Quit all windows"
+
+
+" Easier moving code blocks
+vnoremap < <gv  " better indentation
+vnoremap > >gv " better indentation
+
+
+
+" Settings for ctrlp
+let g:ctrlp_max_height = 30
+set wildignore+=*.pyc
+set wildignore+=*_build/*
+set wildignore+=*/coverage/*
+
+
+" Settings for Jedi vim
+let g:jedi#usages_command = "<Leader>z"
+let g:jedi#popup_on_dot = 0
+let g:jedi#popup_select_first = 0
+map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
+
+
+" Better navigating through omnicomplete option list
+" See http://stackoverflow.com/questions/2170023/how-to-map-keys-for-popup-menu-in-vim
+" set completeopt=longest,menuone
+" function! OmniPopup(action)
+    " if pumvisible()
+        " if a:action == 'j'
+            " return "\<C-N>"
+        " elseif a:action == 'k'
+            " return "\<C-P>"
+        " endif
+    " endif
+    " return a:action
+" endfunction
+"
+" inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
+" inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
