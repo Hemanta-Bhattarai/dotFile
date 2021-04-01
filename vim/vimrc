@@ -49,7 +49,7 @@ Plug 'altercation/vim-colors-solarized'
 
 
 " Gruvbox Community theme.
-"Plug 'gruvbox-community/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 
 "
 "" Integrate fzf with Vim.
@@ -76,9 +76,9 @@ Plug 'PhilRunninger/nerdtree-visual-selection'
 " K shows the documentation
 " and more
 
-Plug 'davidhalter/jedi'
+" Plug 'davidhalter/jedi'
 
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "To install coc-python :CocInstall coc-python"
 
 
@@ -130,7 +130,7 @@ Plug 'davidhalter/jedi'
 Plug 'tpope/vim-commentary'
 "
 "" Automatically set 'shiftwidth' + 'expandtab' (indention) based on file type.
-" Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-sleuth'
 "
 "" A number of useful motions for the quickfix list, pasting and more.
 " Plug 'tpope/vim-unimpaired'
@@ -155,7 +155,7 @@ Plug 'tpope/vim-fugitive'
  Plug 'honza/vim-snippets'
 "
 "" Automatically show Vim's complete menu while typing.
- Plug 'vim-scripts/AutoComplPop'
+" Plug 'vim-scripts/AutoComplPop'
 "
 "" Run test suites for various languages.
 " Plug 'janko/vim-test'
@@ -202,9 +202,6 @@ call plug#end()
 set nocompatible
 
 " Turn on syntax highlighting.
-let python_highlight_all=1
-filetype off
-filetype plugin indent on
 syntax on
 
 " Disable the default Vim startup message.
@@ -372,7 +369,8 @@ let &t_EI.="\e[6 q" "EI = NORMAL mode (ELSE)
 
 
   if exists('$TMUX')
-   colorscheme morning
+    set background=dark
+    colorscheme gruvbox
   endif
 
   if (has("termguicolors"))
@@ -382,9 +380,10 @@ let &t_EI.="\e[6 q" "EI = NORMAL mode (ELSE)
 "switch syntax highlighting on, when the terminal has colors
 if has('gui_running')
   set background=dark
-  colorscheme morning
+  colorscheme gruvbox
 else
-  colorscheme morning
+  set background=dark
+  colorscheme  gruvbox
 endif
 
 "display vertical line after 80 characters "
@@ -479,18 +478,22 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 "++++++++++++++++++++++++++++++++++++++++++++++++++"
 "Coc Conquer of completion configuration"
 " To goto defination
-" nmap <silent> gd <Plug>(coc-definition)
+"nmap <Leader> gd <Plug>(coc-definition)
+"nmap <Leader> gr <Plug>(coc-references)
+ nmap <Leader> gd :call CocAction('jumpDefinition', 'split')<CR>
+ nmap <Leader> gr :call CocAction('jumpReference', 'split')<CR>
+ nnoremap <C-p> :GFiles<CR>
 "
 "
 " Display documentation"
-" nnoremap <silent> K :call <SID>show_documentation()<CR>
-" function! s:show_documentation()
-  " if (index(['vim','help'], &filetype) >= 0)
-    " execute 'h '.expand('<cword>')
-  " else
-    " call CocAction('doHover')
-  " endif
-" endfunction
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 "
 "
 " Smart renames"
@@ -522,7 +525,7 @@ set splitbelow
 set termwinsize=10x0
 
 "Enable python3 in vim"
-let g:syntastic_python_python_exec = 'python3'
+ let g:syntastic_python_python_exec = 'python3'
 
 "Enable pep8"
 au BufNewFile,BufRead *.py
@@ -534,10 +537,10 @@ au BufNewFile,BufRead *.py
     \ set autoindent
     \ set fileformat=unix
 
-set encoding=utf-8
+ set encoding=utf-8
 
-" let g:ycm_autoclose_preview_window_after_completion=1
-" map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+ let g:ycm_autoclose_preview_window_after_completion=1
+ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 "python with virtualenv support
 "
@@ -578,26 +581,26 @@ set wildignore+=*_build/*
 set wildignore+=*/coverage/*
 
 
-" Settings for Jedi vim
-let g:jedi#usages_command = "<Leader>z"
-let g:jedi#popup_on_dot = 0
-let g:jedi#popup_select_first = 0
+" Settings for " Jedi vim
+" let g:jedi#usages_command = "<Leader>z"
+" let g:jedi#popup_on_dot = 0
+" let g:jedi#popup_select_first = 0
 map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 
 
 " Better navigating through omnicomplete option list
 " See http://stackoverflow.com/questions/2170023/how-to-map-keys-for-popup-menu-in-vim
-" set completeopt=longest,menuone
-" function! OmniPopup(action)
-    " if pumvisible()
-        " if a:action == 'j'
-            " return "\<C-N>"
-        " elseif a:action == 'k'
-            " return "\<C-P>"
-        " endif
-    " endif
-    " return a:action
-" endfunction
+set completeopt=longest,menuone
+function! OmniPopup(action)
+    if pumvisible()
+        if a:action == 'j'
+            return "\<C-N>"
+        elseif a:action == 'k'
+            return "\<C-P>"
+        endif
+    endif
+    return a:action
+endfunction
 "
-" inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
-" inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
+ inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
+ inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
