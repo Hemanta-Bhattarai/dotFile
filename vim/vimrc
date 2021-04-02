@@ -13,7 +13,7 @@ Plug 'vim-airline/vim-airline-themes'
 
 
 "Super searching"
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvi/ctrlp.vim'
 
 "AutoComplete"
 " Plug 'Valloric/YouCompleteMe'
@@ -76,9 +76,9 @@ Plug 'PhilRunninger/nerdtree-visual-selection'
 " K shows the documentation
 " and more
 
-" Plug 'davidhalter/jedi'
+Plug 'davidhalter/jedi'
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "To install coc-python :CocInstall coc-python"
 
 
@@ -480,20 +480,20 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 " To goto defination
 "nmap <Leader> gd <Plug>(coc-definition)
 "nmap <Leader> gr <Plug>(coc-references)
- nmap <Leader> gd :call CocAction('jumpDefinition', 'split')<CR>
- nmap <Leader> gr :call CocAction('jumpReference', 'split')<CR>
+ " nmap <Leader> gd :call CocAction('jumpDefinition', 'split')<CR>
+ " nmap <Leader> gr :call CocAction('jumpReference', 'split')<CR>
  nnoremap <C-p> :GFiles<CR>
 "
 "
 " Display documentation"
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
+" nnoremap <silent> K :call <SID>show_documentation()<CR>
+" function! s:show_documentation()
+  " if (index(['vim','help'], &filetype) >= 0)
+    " execute 'h '.expand('<cword>')
+  " else
+    " call CocAction('doHover')
+  " endif
+" endfunction
 "
 "
 " Smart renames"
