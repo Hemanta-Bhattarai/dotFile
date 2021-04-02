@@ -53,8 +53,8 @@ Plug 'gruvbox-community/gruvbox'
 
 "
 "" Integrate fzf with Vim.
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf.vim'
 
 "NerdTree Plugins
 Plug 'scrooloose/nerdtree'
@@ -339,13 +339,13 @@ set cursorline
 
 ""set cursorcolumn
 " Default Colors for CursorLine
-highlight  CursorLine ctermbg=White ctermfg=Green
+" highlight  CursorLine ctermbg=White ctermfg=Green
 
 " Change Color when entering Insert Mode
-autocmd InsertEnter * highlight  CursorLine ctermbg=LightGreen ctermfg=Blue
+" autocmd InsertEnter * highlight  CursorLine ctermbg=LightGreen ctermfg=Blue
 
 " Revert Color to default when leaving Insert Mode
-autocmd InsertLeave * highlight  CursorLine ctermbg=White ctermfg=Green
+" autocmd InsertLeave * highlight  CursorLine ctermbg=White ctermfg=Green
 
 
 
@@ -369,20 +369,20 @@ let &t_EI.="\e[6 q" "EI = NORMAL mode (ELSE)
 
 
   if exists('$TMUX')
-    set background=dark
+    if (has("termguicolors"))
+      set termguicolors
+    endif
+    " set background=dark
     colorscheme gruvbox
   endif
 
-  if (has("termguicolors"))
-   set termguicolors
-  endif
 
 "switch syntax highlighting on, when the terminal has colors
 if has('gui_running')
-  set background=dark
+  " set background=dark
   colorscheme gruvbox
 else
-  set background=dark
+  " set background=dark
   colorscheme  gruvbox
 endif
 
@@ -512,8 +512,8 @@ let g:airline_section_y = 'BN: %{bufnr("%")}'
 "++++++++++++++++++++++++++++++++++"
 "fzf vim configuration
 "
-let g:fzf_preview_window = 'right:50%'
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6  }  }
+" let g:fzf_preview_window = 'right:50%'
+" let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6  }  }
 
 
 "++++++++++++++++"
@@ -566,6 +566,11 @@ noremap <Leader>s :update<CR> " Save file
 " Quick quit commands
 noremap <Leader>e :quit<CR>  " Quit current windows
 noremap<Leader>E :qal<CR>    " Quit all windows"
+
+
+" Opening terminal short-cut key
+noremap <Leader>t :term<CR>
+
 
 
 " Easier moving code blocks
