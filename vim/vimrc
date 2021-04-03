@@ -186,6 +186,7 @@ Plug 'tpope/vim-fugitive'
 call plug#end()
 
 
+autocmd vimenter * colorscheme gruvbox
 
 "PlugInstall
 
@@ -368,23 +369,23 @@ let &t_EI.="\e[6 q" "EI = NORMAL mode (ELSE)
 "  6 -> solid vertical bar
 
 
-  if exists('$TMUX')
-    if (has("termguicolors"))
-      set termguicolors
-    endif
+  " if exists('$TMUX')
+    " if (has("termguicolors"))
+      " set termguicolors
+    " endif
     " set background=dark
-    colorscheme gruvbox
-  endif
+    " colorscheme gruvbox
+  " endif
 
 
 "switch syntax highlighting on, when the terminal has colors
-if has('gui_running')
+" if has('gui_running')
   " set background=dark
-  colorscheme gruvbox
-else
+  " colorscheme gruvbox
+" else
   " set background=dark
-  colorscheme  gruvbox
-endif
+  " colorscheme  gruvbox
+" endif
 
 "display vertical line after 80 characters "
 set colorcolumn=80
