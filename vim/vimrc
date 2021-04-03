@@ -14,7 +14,7 @@ Plug 'vim-airline/vim-airline-themes'
 " Install dash to see documentation
 Plug 'rizzatti/dash.vim'
 "Super searching"
-Plug 'ctrlpvi/ctrlp.vim'
+Plug 'kien/ctrlp.vim'
 
 "AutoComplete"
 " Plug 'Valloric/YouCompleteMe'
@@ -523,8 +523,8 @@ let g:airline_section_y = 'BN: %{bufnr("%")}'
 
 "++++++++++++++++"
 "Auto completion configuration
-<C-N> next word completion
-<C-P> previous word completion
+" <C-N> next word completion
+" <C-P> previous word completion
 "+++++++++++++++++"
 "Term size in vim
 set splitbelow
