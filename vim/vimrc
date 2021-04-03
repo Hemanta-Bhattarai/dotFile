@@ -11,7 +11,8 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim'}
 
-
+" Install dash to see documentation
+Plug 'rizzatti/dash.vim'
 "Super searching"
 Plug 'kien/ctrlp.vim'
 
@@ -189,7 +190,7 @@ call plug#end()
 
 "PlugInstall
 
-
+autocmd vimenter * colorscheme gruvbox
 
 " If you open this file in Vim, it'll be syntax highlighted for you.
 " Vim is based on Vi. Setting `nocompatible` switches from the default
@@ -452,7 +453,10 @@ let g:NERDCompactSexyComs = 1
 let g:NERDAltDelims_java = 1
 
 " Add your own custom formats or override the defaults
-let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+let g:NERDCustomDelimiters = {
+      \'c': { 'left': '/**','right': '*/' },
+      \'omd': { 'left': '//','right': '' },
+      \}
 
 " Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 1
@@ -518,7 +522,8 @@ let g:airline_section_y = 'BN: %{bufnr("%")}'
 
 "++++++++++++++++"
 "Auto completion configuration
-"imap <Tab> <C-N>
+<C-N> next word completion
+<C-P> previous word completion
 "+++++++++++++++++"
 "Term size in vim
 set splitbelow
@@ -528,14 +533,14 @@ set termwinsize=10x0
  let g:syntastic_python_python_exec = 'python3'
 
 "Enable pep8"
-au BufNewFile,BufRead *.py
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
+" au BufNewFile,BufRead *.py
+    " \ set tabstop=4
+    " \ set softtabstop=4
+    " \ set shiftwidth=4
+    " \ set textwidth=79
+    " \ set expandtab
+    " \ set autoindent
+    " \ set fileformat=unix
 
  set encoding=utf-8
 
@@ -609,3 +614,10 @@ endfunction
 "
  inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
  inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
+
+" set file types for unknown extensions
+
+" Set the filetype based on the file's extension, overriding any
+" 'filetype' that has already been set
+au BufRead,BufNewFile *.omd set filetype=omd
+au BufRead,BufNewFile *.frc set filetype=omd
