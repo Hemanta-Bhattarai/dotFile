@@ -125,6 +125,9 @@ if [ ! -f ~/.vim/autoload/plug.vim ]; then
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
+# make vim the default terminal editor
+vim_location=$( which vim)
+export EDITOR=$vim_location
 
 
 #clang formating alias
