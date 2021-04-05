@@ -5,6 +5,26 @@
 call plug#begin('~/.vim/plugged')
 
 
+" preview for markdown
+Plug 'kannokanno/previm'
+
+
+" cpp enhanced syntax highlighting for c++11/14/17
+Plug 'octol/vim-cpp-enhanced-highlight'
+
+"Indent guides"
+Plug 'yggdroot/indentline'
+
+
+" Rainbow for parenthesis
+Plug 'kien/rainbow_parentheses.vim'
+
+" ack vim to search file with the searched word
+" Plug 'mileszs/ack.vim'
+
+" taglist.vim provides overview for structure of the code
+" Plug 'vim-scripts/taglist.vim'
+
 "Vim airline provides good status bar for vim
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -54,8 +74,8 @@ Plug 'gruvbox-community/gruvbox'
 
 "
 "" Integrate fzf with Vim.
-" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 "NerdTree Plugins
 Plug 'scrooloose/nerdtree'
@@ -370,13 +390,13 @@ let &t_EI.="\e[6 q" "EI = NORMAL mode (ELSE)
 "  6 -> solid vertical bar
 
 
-  " if exists('$TMUX')
-    " if (has("termguicolors"))
-      " set termguicolors
-    " endif
-    " set background=dark
-    " colorscheme gruvbox
-  " endif
+  if exists('$TMUX')
+    if (has("termguicolors"))
+      set termguicolors
+    endif
+    set background=dark
+    colorscheme gruvbox
+  endif
 
 
 "switch syntax highlighting on, when the terminal has colors
@@ -622,3 +642,33 @@ endfunction
 " 'filetype' that has already been set
 au BufRead,BufNewFile *.omd set filetype=omd
 au BufRead,BufNewFile *.frc set filetype=omd
+" ++++++++++++++++++++++++++++++++++++++++++++++++++
+" Activate rainbow parenthesis globally
+let g:rainbow_active = 0
+" Highlighting of class scope is disabled by default. To enable set
+let g:cpp_class_scope_highlight = 1
+" Highlighting of member variables is disabled by default. To enable set
+let g:cpp_member_variable_highlight = 1
+" Highlighting of class names in declarations is disabled by default. To enable set
+let g:cpp_class_decl_highlight = 1
+" Highlighting of POSIX functions is disabled by default. To enable set
+let g:cpp_posix_standard = 1
+" There are two ways to highlight template functions. Either
+let g:cpp_experimental_simple_template_highlight = 1
+" which works in most cases, but can be a little slow on large files. Alternatively set
+let g:cpp_experimental_template_highlight = 1
+" which is a faster implementation but has some corner cases where it doesn't work.
+" Note: C++ template syntax is notoriously difficult to parse, so don't expect this feature to be perfect.
+" Highlighting of library concepts is enabled by
+let g:cpp_concepts_highlight = 1
+" This will highlight the keywords concept and requires as well as all named requirements (like DefaultConstructible) in the standard library.
+" Highlighting of user defined functions can be disabled by
+let g:cpp_no_function_highlight = 1
+" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"
+
+
+" Previm confiuration
+let g:previm_open_cmd = 'open -a Google\ Chrome'
+" Realtime preview
+let g:previm_enable_realtime = 1
