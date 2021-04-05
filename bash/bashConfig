@@ -126,7 +126,7 @@ if [ ! -f ~/.vim/autoload/plug.vim ]; then
 fi
 
 # make vim the default terminal editor
-vim_location=$( which vim)
+vim_location=$( which vim )
 export EDITOR=$vim_location
 
 
