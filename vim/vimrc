@@ -55,6 +55,8 @@ Plug 'preservim/nerdcommenter'
 "plug in for linting in c++ and c
 Plug 'rhysd/vim-clang-format', {'for': ['c', 'cpp']}
 "
+" Toggle background function
+Plug 'rakr/vim-togglebg'
 "
 
 " Gruvbox Community theme.
