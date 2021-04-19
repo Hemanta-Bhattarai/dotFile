@@ -1,3 +1,6 @@
+# Good source to configure the bash by setting the variables
+# https://www.gnu.org/software/bash/manual/html_node/index.html#SEC_Contents
+
 #To enable the logo comment out the follwing lines
 #cat<< "EOLogo"
 # _____ _           _     _   _                 _____           _        _
@@ -12,16 +15,29 @@
 #EOLogo
 # source for text: http://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20
 #
-#
-alias c1="awk '{print \$1}'"
-alias c2="awk '{print \$2}'"
-alias c3="awk '{print \$3}'"
-alias c4="awk '{print \$4}'"
-alias c5="awk '{print \$5}'"
-alias c6="awk '{print \$6}'"
-alias c7="awk '{print \$7}'"
-alias c8="awk '{print \$8}'"
-alias c9="awk '{print \$9}'"
+# Configure bash history
+
+export HISTTIMEFORMAT='%F, %T'
+export HISTSIZE=10000
+export HISTFILESIZE=10000
+shopt -s histappend
+export HISTIGNORE="history:ls:pwd:"
+
+# alias
+for column in {1..20}
+do
+  alias "c$column"="awk '{print \$$column}'"
+done
+
+# alias c1="awk '{print \$1}'"
+# alias c2="awk '{print \$2}'"
+# alias c3="awk '{print \$3}'"
+# alias c4="awk '{print \$4}'"
+# alias c5="awk '{print \$5}'"
+# alias c6="awk '{print \$6}'"
+# alias c7="awk '{print \$7}'"
+# alias c8="awk '{print \$8}'"
+# alias c9="awk '{print \$9}'"
 
 
 
