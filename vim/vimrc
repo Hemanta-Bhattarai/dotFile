@@ -121,7 +121,7 @@ Plug 'tpope/vim-fugitive'
 " Plug 'tpope/vim-liquid'
 " Plug 'tpope/vim-rails'
  Plug 'vim-python/python-syntax'
- Plug 'vim-ruby/vim-ruby'
+ " Plug 'vim-ruby/vim-ruby'
  Plug 'wgwoods/vim-systemd-syntax'
 "
 call plug#end()

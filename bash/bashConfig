@@ -111,6 +111,17 @@ alias c="clear"
 #color starts with \e[x;ym and it ends whth \e[m
 #All non printable sequence should be enclosed within \[ \]
 
+function get_portion(){
+    infile=$1
+    start=$2
+    end=$3
+    outFileName=$4
+    endPlus1=$(( $end + 1 ))
+    sed -n "${start},${end}p;${endPlus1}q" $infile>$outFileName
+
+  }
+
+
 function mkcd()
 {
     mkdir -p "$@" && cd "$@";
