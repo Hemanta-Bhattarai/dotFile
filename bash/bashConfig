@@ -2,25 +2,43 @@
 # https://www.gnu.org/software/bash/manual/html_node/index.html#SEC_Contents
 
 #To enable the logo comment out the follwing lines
-#cat<< "EOLogo"
+# cat<< "EOLogo"
 # _____ _           _     _   _                 _____           _        _
-#/  ___| |         | |   | | | |               /  __ \         | |      | |
-#\ `--.| |__  _   _| |_  | | | |_ __    _ __   | /  \/ ___   __| | ___  | |
+# /  ___| |         | |   | | | |               /  __ \         | |      | |
+# \ `--.| |__  _   _| |_  | | | |_ __    _ __   | /  \/ ___   __| | ___  | |
 # `--. | '_ \| | | | __| | | | | '_ \  | '_ \  | |    / _ \ / _` |/ _ \ | |
-#/\__/ | | | | |_| | |_  | |_| | |_) | | | | | | \__/| (_) | (_| |  __/ |_|
-#\____/|_| |_|\__,_|\__|  \___/| .__/  |_| |_|  \____/\___/ \__,_|\___| (_)
-#                              | |
-#                              |_|
+# /\__/ | | | | |_| | |_  | |_| | |_) | | | | | | \__/| (_) | (_| |  __/ |_|
+# \____/|_| |_|\__,_|\__|  \___/| .__/  |_| |_|  \____/\___/ \__,_|\___| (_)
+                             # | |
+                             # |_|
 #
-#EOLogo
+# EOLogo
 # source for text: http://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20
 #
 # Configure bash history
 
+cat<<"EOLogo"
+              __
+          .--.;_.'-.
+     _.,  \__.'  ;@ '.
+   .';  `.  ;   __..-"'o
+  ;   ;' ;   ;_/   ._.-'
+  '. }  :   /  `. _i/v\.
+  ;  i',;  (  \_.' .(_)
+ ;  ' /{ \/ '.   .r_.'
+.'\  ;  .'  .''-';_
+; ''-. ;   /     '.`.
+ \    ;    '.     ; '.
+  '._.;   _ ;     ;  ;
+       \.' '.__.-i   ;
+
+EOLogo
+
+
 export HISTTIMEFORMAT='%F, %T'
 export HISTSIZE=10000
 export HISTFILESIZE=10000
-shopt -s histappend
+# shopt -s histappend
 export HISTIGNORE="history:ls:pwd:"
 
 # alias
@@ -135,7 +153,8 @@ WORKDIR="\[\e[1;34m\]\W\[\e[m\]"
 PROMPT="\[\e[1m\]$\n\[\e[m\]"
 SEPERATOR="\[\e[1m\]@ \[\e[m\]"
 SYMBOL="🌷"
-CURSOR="\[\e[1;94;16m\]${SYMBOL} >>> \[\e[m\]"
+MASCOT="🐿"
+CURSOR="\[\e[1;94;16m\]${MASCOT} >>> \[\e[m\]"
 PS1="${TIME} ${USERNAME}${SEPERATOR}${WORKDIR}${PROMPT}${CURSOR}"
 
 # set vi color in tumx

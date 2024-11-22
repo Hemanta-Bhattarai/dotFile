@@ -47,7 +47,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'rhysd/vim-clang-format', {'for': ['c', 'cpp']}
 "
 " Toggle background function
-Plug 'rakr/vim-togglebg'
+"Plug 'rakr/vim-togglebg'
 "
 
 " Gruvbox Community theme.
@@ -60,14 +60,14 @@ Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
 
 "NerdTree Plugins
-Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'ryanoasis/vim-devicons'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'scrooloose/nerdtree-project-plugin'
-Plug 'PhilRunninger/nerdtree-buffer-ops'
-Plug 'PhilRunninger/nerdtree-visual-selection'
+" Plug 'scrooloose/nerdtree'
+" Plug 'jistr/vim-nerdtree-tabs'
+" Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'ryanoasis/vim-devicons'
+" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" Plug 'scrooloose/nerdtree-project-plugin'
+" Plug 'PhilRunninger/nerdtree-buffer-ops'
+" Plug 'PhilRunninger/nerdtree-visual-selection'
 
 
 
@@ -492,7 +492,7 @@ set termwinsize=10x0
 " EOF
 
 " Switching between dark and light theme
-call togglebg#map("<F5>")
+" call togglebg#map("<F5>")
 
 
 
